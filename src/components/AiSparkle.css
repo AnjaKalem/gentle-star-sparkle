@@ -1,0 +1,72 @@
+/* ── Sparkle breathing keyframes ── */
+
+@keyframes sparkle-breathe-large {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle-breathe-small {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  35% {
+    opacity: 0.9;
+    transform: scale(1.025);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle-breathe-yellow {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  30% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Star base ── */
+
+.sparkle-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* ── Individual star animations ── */
+
+.sparkle-star--large {
+  animation: sparkle-breathe-large 600ms ease-out both alternate infinite;
+  animation-delay: 0ms;
+  animation-timing-function: ease-out;
+}
+
+.sparkle-star--small {
+  animation: sparkle-breathe-small 700ms ease-out both alternate infinite;
+  animation-delay: 180ms;
+}
+
+.sparkle-star--yellow {
+  animation: sparkle-breathe-yellow 700ms ease-out both alternate infinite;
+  animation-delay: 320ms;
+}
