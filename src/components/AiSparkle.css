@@ -1,12 +1,34 @@
-/* ── Sparkle breathing keyframes (scale only) ── */
+/* ── Multi-phase sparkle animation (scale only) ── */
+/* Cycle: appear → settle → idle → disappear → loop */
+/* Total cycle: 2500ms */
 
-@keyframes sparkle-breathe {
-  0% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
+@keyframes sparkle-large {
+  0%        { transform: scale(0); animation-timing-function: ease-out; }
+  10.4%     { transform: scale(1.1); animation-timing-function: ease-in-out; }
+  17.6%     { transform: scale(1); animation-timing-function: linear; }
+  80%       { transform: scale(1); animation-timing-function: ease-in; }
+  88.8%     { transform: scale(0); }
+  100%      { transform: scale(0); }
+}
+
+@keyframes sparkle-small {
+  0%        { transform: scale(0); }
+  4.8%      { transform: scale(0); animation-timing-function: ease-out; }
+  15.2%     { transform: scale(1.1); animation-timing-function: ease-in-out; }
+  22.4%     { transform: scale(1); animation-timing-function: linear; }
+  76.8%     { transform: scale(1); animation-timing-function: ease-in; }
+  85.6%     { transform: scale(0); }
+  100%      { transform: scale(0); }
+}
+
+@keyframes sparkle-yellow {
+  0%        { transform: scale(0); }
+  8%        { transform: scale(0); animation-timing-function: ease-out; }
+  18.4%     { transform: scale(1.1); animation-timing-function: ease-in-out; }
+  25.6%     { transform: scale(1); animation-timing-function: linear; }
+  73.6%     { transform: scale(1); animation-timing-function: ease-in; }
+  82.4%     { transform: scale(0); }
+  100%      { transform: scale(0); }
 }
 
 /* ── Star base ── */
@@ -17,19 +39,14 @@
   will-change: transform;
 }
 
-/* ── Individual star animations ── */
-
 .sparkle-star--large {
-  animation: sparkle-breathe 320ms ease-out both alternate infinite;
-  animation-delay: 0ms;
+  animation: sparkle-large 2500ms infinite;
 }
 
 .sparkle-star--small {
-  animation: sparkle-breathe 380ms ease-out both alternate infinite;
-  animation-delay: 140ms;
+  animation: sparkle-small 2500ms infinite;
 }
 
 .sparkle-star--yellow {
-  animation: sparkle-breathe 380ms ease-out both alternate infinite;
-  animation-delay: 220ms;
+  animation: sparkle-yellow 2500ms infinite;
 }
